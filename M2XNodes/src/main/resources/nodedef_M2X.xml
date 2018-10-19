@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<nodedefs>
+<nodedef name="M2XService" class="vdab.extnodes.m2x.M2XService">
+	<attr name="Group">Data</attr>
+	<attr name="ConsumedEventTypes">Event</attr>
+    <attr name="PublishedEventTypes">Event</attr>
+    <attr name="NodeOverview">Writes data to an ATT M2X Server</attr>   
+    <attr name="NodeDescTemplate"> TESTING</attr>
+	<attr name="NodeQuality" >Prototype</attr>  
+	<datadef name="DeviceID">
+		<attr name="EditOrder" type="Integer">21</attr>
+		<attr name="Category">Required</attr>
+		<attr name="Desc">The device ID assigned to this M2X device.</attr>		
+	</datadef>
+	<datadef name="ApiKey">
+		<attr name="EditOrder" type="Integer">22</attr>
+		<attr name="Category">Required</attr>
+		<attr name="Desc">The API Key assigned to this M2X device.</attr>		
+	</datadef>
+</nodedef>
+</nodedefs>
