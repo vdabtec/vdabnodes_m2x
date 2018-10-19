@@ -18,13 +18,7 @@ package vdab.extnodes.m2x;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Map;
 import java.util.TimeZone;
-import java.util.Map.Entry;
-
-import org.eclipse.jetty.util.ajax.JSON;
-
-import com.lcrc.af.AnalysisCompoundData;
 import com.lcrc.af.AnalysisData;
 
 public class M2XDataUtility {

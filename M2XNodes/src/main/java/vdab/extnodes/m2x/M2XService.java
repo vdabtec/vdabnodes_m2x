@@ -25,7 +25,6 @@ import com.lcrc.af.constants.HTTPMethodType;
 
 import vdab.api.node.HTTPService_A;
 import vdab.core.dataencode.JsonUtility;
-import vdab.core.nodes.http.ServiceHandler_HTTP;
 
 public class M2XService extends HTTPService_A {
 	private static final String API_ENDPOINT = "https://api-m2x.att.com"; 
@@ -94,8 +93,7 @@ public class M2XService extends HTTPService_A {
 			this.serviceFailed(inEvent, 3);
 		}
 	}
-	@Override
-	public void setupHTTPConnection(HttpURLConnection con) throws Exception {
+	public void setupHTTPConnection(HttpURLConnection con)  {
 		con.setRequestProperty("X-M2X-KEY", c_ApiKey);
 		con.setRequestProperty("Content-Type", "application/json");	
 	}
