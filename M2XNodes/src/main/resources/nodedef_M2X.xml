@@ -17,5 +17,10 @@
 		<attr name="Category">Required</attr>
 		<attr name="Desc">The API Key assigned to this M2X device.</attr>		
 	</datadef>
+	<datadef name="UseHTTPS">
+		<attr name="EditOrder" type="Integer">23</attr>
+		<attr name="Category">Required</attr>
+		<attr name="Desc">Set to TRUE to POST data using HTTPS.</attr>		
+	</datadef>
 </nodedef>
 </nodedefs>

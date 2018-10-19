@@ -27,13 +27,15 @@ import vdab.api.node.HTTPService_A;
 import vdab.core.dataencode.JsonUtility;
 
 public class M2XService extends HTTPService_A {
-	private static final String API_ENDPOINT = "https://api-m2x.att.com"; 
+	private static final String API_ENDPOINT = "http://api-m2x.att.com"; 
+	private static final String API_HTTPS_ENDPOINT = "https://api-m2x.att.com"; 
 	private static final String API_VERSION = "/v2"; 
 	private static final String API_DEVICEPATH = "/devices/";
 	
 	private String c_DeviceID;
 	private String c_ApiKey;
 	private String c_Stream;
+	private Boolean c_UseHTTPS = Boolean.FALSE;
 	
 	public String get_DeviceID(){
 		return c_DeviceID;
@@ -53,6 +55,12 @@ public class M2XService extends HTTPService_A {
 	public void set_Stream(String stream){
 		c_Stream = stream;
 	}
+	public Boolean get_UseHTTPS(){
+		return c_UseHTTPS;
+	}
+	public void set_UseHTTPS(Boolean use){
+		c_UseHTTPS = use;
+	}
 	public void _init(){
 		super._init();
 		// Force to use post for M2X
@@ -61,7 +69,11 @@ public class M2XService extends HTTPService_A {
 	@Override
 	public String buildCompleteURL(AnalysisEvent ev) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(API_ENDPOINT).append(API_VERSION);
+		if (c_UseHTTPS.booleanValue())
+			sb.append(API_HTTPS_ENDPOINT);
+		else
+			sb.append(API_ENDPOINT);	
+		sb.append(API_VERSION);	
 		sb.append(API_DEVICEPATH);		
 		sb.append(c_DeviceID);
 		sb.append("/updates");
