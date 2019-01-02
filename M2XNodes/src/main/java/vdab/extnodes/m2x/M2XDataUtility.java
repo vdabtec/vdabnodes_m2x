@@ -29,6 +29,13 @@ public class M2XDataUtility {
 		df.setTimeZone(TimeZone.getTimeZone("UTC"));	
 		return df;
 	}
+	public static String convertAnalysisDataToM2XJsonSettingStream(String stream, AnalysisData ad, long ts) {
+		StringBuilder sb = new StringBuilder("{");
+		String timeStr = DATEFORMAT.format(new Date(ts));
+		addJSONForAD(sb, timeStr, 0, stream, ad.getDataAsString());
+		sb.append("\n}");	
+		return sb.toString();
+	}
 	public static String convertAnalysisDataToM2XJson(AnalysisData ad, long ts) {
 		StringBuilder sb = new StringBuilder("{");
 		String timeStr = DATEFORMAT.format(new Date(ts));
@@ -45,7 +52,7 @@ public class M2XDataUtility {
 			addJSONForAD(sb, timeStr, level, ad.getLabel(), ad.getDataAsString());
 		}
 		else {
-			addJSONStartForACD(sb, level, ad.getLabel());
+			//addJSONStartForACD(sb, level, ad.getLabel());
 			AnalysisData[] childAds = ad.getChildData();
 			for (int n = 0; n < childAds.length; n++) {
 				if (n > 0)
@@ -53,7 +60,7 @@ public class M2XDataUtility {
 				buildJSON(sb, timeStr, level, childAds[n]);
 				
 			}
-			addJSONEndForACD(sb, level, ad.getLabel());
+			//addJSONEndForACD(sb, level, ad.getLabel());
 		}
 	}
 	
