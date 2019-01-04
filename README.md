@@ -3,7 +3,7 @@
 AT&T's M2X provides time series data storage for the Internet of Things. The M2X service demonstrates how
 a node can be constructed to store VDAB data directly into M2X. 
 
- | |
+| | |
 |  --- |  :---: |
 | Application Page    | [Publishing to M2X](https://vdabtec.com/vdab/app-guides/publishing-to-m2x) |
 | Demo Web Link   | [demo1.vdabcloud.com:42102/vdab](http://demo1.vdabcloud.com:42012/vdab) |
