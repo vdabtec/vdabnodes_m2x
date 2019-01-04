@@ -100,12 +100,12 @@ public class M2XService extends HTTPService_A implements HTTPResponseHandler_I{
 	public void _init(){
 		super._init();
 		// Force to use post for M2X
-		/*String infoURL = buildStreamInfoURL();
+		set_HTTPMethod(Integer.valueOf(HTTPMethodType.POST));
+
+		String infoURL = buildStreamInfoURL();
 		if (infoURL != null)
 			new HTTPRequestRunner(this, 1, infoURL, this);
-		*///"http://api-m2x.att.com/v2/devices/cacdfce9db48384737835aa1f8589b41/streams?pretty=true"
-		set_HTTPMethod(Integer.valueOf(HTTPMethodType.POST));
-	}
+		}
 	
 	private String buildStreamInfoURL() {
 
@@ -190,7 +190,7 @@ public class M2XService extends HTTPService_A implements HTTPResponseHandler_I{
 			} 
 			catch (IOException e) {}
 			if (response.length() > 0 ){
-				List<String> streamList = StringUtility.locateAllBetween(response.toString(), "\"display_name\":\"", "\",");
+				List<String> streamList = StringUtility.locateAllBetween(response.toString(), "\"name\":\"", "\",");
 				c_AvailableStreams  = StringUtility.getDelimitedStrings(streamList,",");
 			}
 	}
